@@ -2,7 +2,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int snap      = 32;       /* snap pixel */
+static const unsigned int snap      = 10;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 0;        /* 0 means bottom bar.1 means top bar */
 static const char *fonts[]          = { "WenQuanYi Zen Hei Mono:size=12" };
@@ -36,6 +36,7 @@ static const Rule rules[] = {
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -62,6 +63,7 @@ static const char *dmenucmd[] = { "rofi", "-show", "run", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *ranger[]  = { "alacritty", "-e", "ranger", NULL };
 static const char *wd[]  = { "alacritty", "-e", "wd", "-i", NULL };
+static const char *slock[]  = { "alacritty", "-e", "slock", NULL };
 static const char *browsercmd[]  = { "google-chrome-stable", NULL };
 /*
 static const char *upvol[]   = { "/home/manjaro/dwm-6.2/scripts/vol-up.sh",  NULL };
@@ -75,6 +77,7 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_c,      spawn,          {.v = browsercmd } },
+	{ MODKEY,                       XK_s,      spawn,          {.v = slock } },
 	{ MODKEY,                       XK_comma,  spawn,          {.v = downvol } },
 	{ MODKEY,                       XK_period, spawn,          {.v = upvol } },
 	{ MODKEY,                       XK_slash,  spawn,          {.v = mutevol } },
@@ -89,7 +92,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    focusstack,     {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_Tab,    focusstack,     {.i = -1 } },
-//	{ MODKEY,                       XK_Tab,    view,           {0} },
+	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
