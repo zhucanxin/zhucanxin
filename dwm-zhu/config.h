@@ -22,8 +22,8 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1终", "2网","3ra", "4夹", "5XFCE", "6音", "7", "8", "9" };
-static const char *defaulttagapps[] = { "alacritty", "google-chrome-stable", "NULL", "thunar", "xfce4-panel", "NULL", NULL, NULL, NULL };
+static const char *tags[] = { "1终", "2网","3ra", "4夹", "5XFCE", "6音", "7Focus", "8", "9" };
+static const char *defaulttagapps[] = { "alacritty", "google-chrome-stable", "ranger", "thunar", "xfce4-panel", "NULL", NULL, NULL, NULL };
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
